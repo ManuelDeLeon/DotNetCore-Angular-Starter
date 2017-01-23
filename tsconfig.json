@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipDefaultLibCheck": true,
+    "lib": [ "es6", "dom" ],
+    "types": [ "node", "jasmine", "cheerio" ],
+    "noUnusedLocals": true,
+	  "noFallthroughCasesInSwitch": true,
+	  "strictNullChecks": true,
+	  "skipLibCheck": true
+  },
+	"exclude": [ "bin", "node_modules" ],
+  "atom": { "rewriteTsconfig": false }
+}
