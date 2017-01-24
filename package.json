@@ -16,7 +16,7 @@
     "start": "npm run dev",
     "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run",
     "prod": "cross-env ASPNETCORE_ENVIRONMENT=Production dotnet run",
-    "initialize": "npm install && npm run build-dev && dotnet restore"
+    "initialize": "npm install && npm run build-dev && dotnet restore && del ClientApp\\*.js* /q/s"
   },
   "dependencies": {
     "@angular/common": "2.0.2",
