@@ -2,10 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
     const extractCSS = new ExtractTextPlugin('vendor.css');
     const isDevBuild = !(env && env.prod);
+    const sizeUp = (env && env.size);
     const sharedConfig = {
         stats: { modules: false },
         resolve: { extensions: [ '.js' ] },
@@ -29,14 +31,12 @@ module.exports = (env) => {
                 'angular2-universal-polyfills',
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
+                'font-awesome/css/font-awesome.min.css',
                 'es6-shim',
                 'es6-promise',
                 'event-source-polyfill',
                 'jquery',
-                'zone.js',
-                'font-awesome-webpack',
-                'rxjs',
-                'lodash'
+                'zone.js'
             ]
         },
         output: {
@@ -66,7 +66,10 @@ module.exports = (env) => {
             })
         ].concat(isDevBuild ? [] : [
             new webpack.optimize.UglifyJsPlugin()
-        ])
+        ].concat( sizeUp ? new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            reportFilename: '../../ClientSize/vendor.html'
+        }) : []))
     });
 
     const serverBundleConfig = merge(sharedConfig, {

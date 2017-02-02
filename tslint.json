@@ -4,8 +4,7 @@
   ],
   "rules": {
     "align": [true,
-      "parameters",
-      "statements"
+      "parameters"
     ],
     "class-name": true,
     "comment-format": [true,

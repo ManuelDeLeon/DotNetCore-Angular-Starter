@@ -5,8 +5,6 @@ import { AppModule } from "./Components/App/app.module";
 import "bootstrap";
 import "./Styles/site.css";
 
-require("font-awesome-webpack");
-
 // Enable either Hot Module Reloading or production mode
 if (module["hot"]) {
 	module["hot"].accept();

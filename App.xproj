@@ -7,10 +7,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>8383b190-0253-40e2-aecd-66f653c5fa12</ProjectGuid>
+    <ProjectGuid>3c24be42-86d1-4acc-95b8-8522ba6d75c3</ProjectGuid>
     <RootNamespace>Mcangular</RootNamespace>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+	<BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
+    <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
   </PropertyGroup>
+
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>

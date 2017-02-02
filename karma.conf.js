@@ -2,18 +2,19 @@
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 var path = require('path');
 var runCodeCoverage = process.argv.indexOf('--env.coverage') >= 0;
-var webpackConfig = require('./webpack.config.js').filter(config => config.target !== 'node');
+var webpackConfig = require('./webpack.config.js')().filter(config => config.target !== 'node');
 var reporters = ['progress'];
 var bootFile = "./ClientApp/boot-tests.ts";
 if (runCodeCoverage) {
     bootFile = "./ClientApp/boot-coverage.ts";
     reporters.push('karma-remap-istanbul');
-    webpackConfig[0].module.postLoaders = [{
+    webpackConfig[0].module.rules.push({
         test: /(?:^|[^LoanDTO])\.ts$/,
         include: [path.resolve(__dirname, "./ClientApp")],
-        loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
-        exclude: [/\.spec\.ts$/]
-    }];
+        use: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
+        exclude: [/\.spec\.ts$/],
+        enforce: 'post'
+    });
 }
 
 module.exports = function (config) {
@@ -21,7 +22,6 @@ module.exports = function (config) {
         basePath: '.',
         frameworks: ['jasmine'],
         files: [
-	        './node_modules/babel-polyfill/dist/polyfill.js', // Update PhantomJS
             './wwwroot/dist/vendor.js',
             bootFile
         ],
@@ -33,7 +33,7 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         mime: { 'application/javascript': ['ts','tsx'] },
         singleRun: false,
         webpack: webpackConfig,
