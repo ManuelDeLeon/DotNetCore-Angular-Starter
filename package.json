@@ -23,7 +23,7 @@
     "coverage": "rimraf ClientCoverage && npm run test-single && http-server -c-1 -o -p 9875 ClientCoverage",
     "lint": "npm run lint-ts && npm run lint-html",
     "lint-ts": "tslint ClientApp/**/*.ts",
-    "lint-html": "htmlhint ClientApp/**/*.html -c htmlhint.json",
+    "lint-html": "htmlhint ClientApp/**/*.html -c .htmlhintrc",
     "build-dev": "webpack --progress --config webpack.config.vendor.js && webpack --progress",
     "build-prod": "webpack -p --progress --env.prod --config webpack.config.vendor.js && webpack -p --progress --env.prod",
     "size": "webpack -p --progress --env.prod --env.size --config webpack.config.vendor.js && webpack -p --progress --env.prod --env.size",
