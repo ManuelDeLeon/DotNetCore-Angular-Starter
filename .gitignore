@@ -1,5 +1,6 @@
 .idea
 /ClientCoverage/**
+/ClientDocumentation/**
 
 /Properties/launchSettings.json
 
