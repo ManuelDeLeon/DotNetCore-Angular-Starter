@@ -5,7 +5,7 @@
     "What scripts do:",
     "test: Run tests and watch files for changes.",
     "test-single: Run tests once.",
-    "coverate: Show a test code coverage report.",
+    "coverage: Show a test code coverage report.",
     "lint: Lint both TypeScript and HTML files. Check if the files follow our conventions.",
     "lint-ts: Lint TypeScript files. Check if the files follow our conventions.",
     "lint-html: Lint HTML files. Check if the files follow our conventions.",
