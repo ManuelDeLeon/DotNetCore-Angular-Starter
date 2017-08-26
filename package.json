@@ -36,7 +36,7 @@
     "start": "npm run dev",
     "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run",
     "prod": "cross-env ASPNETCORE_ENVIRONMENT=Production dotnet run",
-    "initialize": "npm install && npm run build-dev && dotnet restore",
+    "initialize": "npm install && npm run build-dev && dotnet restore && npm run selenium-setup",
     "gitbook": "gitbook serve documentation",
     "selenium-setup": "node node_modules/protractor/bin/webdriver-manager update",
     "selenium": "node node_modules/protractor/bin/webdriver-manager start",
