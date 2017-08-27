@@ -41,7 +41,7 @@
     "selenium-setup": "node node_modules/protractor/bin/webdriver-manager update",
     "selenium": "node node_modules/protractor/bin/webdriver-manager start",
     "protractor": "node node_modules/protractor/bin/protractor protractor.js",
-    "e2e": "start npm run start && start npm run selenium && timeout 90 && start npm run protractor",
+    "e2e": "start npm run start && start npm run selenium && timeout 20 && start npm run protractor",
     "show-docs": "http-server -c-1 -o -p 8080 ClientDocumentation",
     "build-docs": "compodoc ClientApp -p docsconfig.json -d ./ClientDocumentation"
   },
